@@ -1,0 +1,139 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "ドリンクメーカー",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "OrderDrinkIntent",
+          "slots": [
+            {
+              "name": "Drink",
+              "type": "DrinkType",
+              "samples": [
+                "{Drink}",
+                "{Drink} が良い",
+                "{Drink} をください",
+                "{Drink} が飲みたい",
+                "{Drink} が欲しい"
+              ]
+            }
+          ],
+          "samples": [
+            "{Drink} が欲しい",
+            "{Drink} を注文して",
+            "{Drink} が飲みたい"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "ShowMenuIntent",
+          "slots": [],
+          "samples": [
+            "何があるの",
+            "何が飲めるの",
+            "メニューを教えて",
+            "メニューを見せて"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "日本茶"
+              }
+            },
+            {
+              "name": {
+                "value": "紅茶"
+              }
+            },
+            {
+              "name": {
+                "value": "コーヒー"
+              }
+            }
+          ],
+          "name": "DrinkType"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "OrderDrinkIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "Drink",
+              "type": "DrinkType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1210740436568.240646076677"
+              }
+            }
+          ],
+          "delegationStrategy": "SKILL_RESPONSE"
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Confirm.Slot.850620770709.1378793373059",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "{Fruit} で良いでしょうか?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.850620770709.1378793373059",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "果物を選んでください"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Intent.850620770709",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "{Fruit} を買って良いでしょうか?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1210740436568.240646076677",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "コーヒー、紅茶、日本茶がご用意できます。どれをお飲みになりますか?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "2"
+}
